@@ -1,0 +1,17 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label{
+    display: block;
+    margin: 1rem;
+}
+
+input, select {
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
