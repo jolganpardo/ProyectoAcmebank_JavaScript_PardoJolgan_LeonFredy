@@ -30,7 +30,10 @@ async function encriptarContraseña(contraseña) {
 }
 
 async function compararContraseña(contraseñaIngresada, contraseñaEncriptada) {
+    console.log(contraseñaEncriptada);
+    
     const hash = await encriptarContraseña(contraseñaIngresada);
+    console.log(hash);
     return hash === contraseñaEncriptada;
 }
 
@@ -70,7 +73,7 @@ export async function ingresoInicioSesion(user, password) {
         };
     }
     const hashGuardado = usuarioSnap.val();
-    const esValida = compararContraseña(password, hashGuardado);
+    const esValida = await compararContraseña(password, hashGuardado);
     if (!esValida) {
         return {
             ok: false,
@@ -85,11 +88,11 @@ export async function ingresoInicioSesion(user, password) {
 
 export async function cambiarPass(id, newPass) {
     try {
-        const newPassCodi = encriptarContraseña(newPass);
+        const newPassCodi = await encriptarContraseña(newPass);
         await update(ref(db, 'clientes/' + id), { password: newPassCodi });
         const usuarioSnap = await get(ref(db, 'clientes/' + id + '/usuario'));
         const nombreUsuario = usuarioSnap.val();
-        await update(ref(db, 'usuarios/' + nombreUsuario), newPassCodi);
+        await update(ref(db, 'usuarios/'),{[nombreUsuario]: newPassCodi});
         return {
             ok: true
         };

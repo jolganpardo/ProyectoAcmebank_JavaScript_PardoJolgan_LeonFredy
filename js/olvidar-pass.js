@@ -24,9 +24,9 @@ async function validarContrasena(){
     const passwordNew = document.getElementById("passwordNew").value;
     const passwordVerificacionNew = document.getElementById("passwordVerificacionNew").value;
     if (passwordVerificacionNew !== passwordNew){
-        alert("Contraseñas no coinciden");
+        return alert("Contraseñas no coinciden");
     }
-    const respuestCambioPass =  await cambiarPass(datos.cedula, passwordNew);
+    const respuestCambioPass =  await cambiarPass(datos.documento, passwordNew);
     if (!respuestCambioPass.ok){
         alert("No se pudo hacer cambio de contraseña")
         return
@@ -34,17 +34,17 @@ async function validarContrasena(){
     alert("Cambio Exitoso");
     document.getElementById("formulario-cambio-paas").reset();
     document.getElementById("formulario-olvidar-pass").reset();
-    devolverAtras();
-
+    await devolverAtras();
+    return
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("btn-olvido-pass-verificar").addEventListener("submit", (event)=>{
+    document.getElementById("formulario-olvidar-pass").addEventListener("submit", (event)=>{
         event.preventDefault();
         datosFormulario();
     });
-    document.getElementById("btn-atras-olvido-pass").addEventListener("click", devolverAtras);
-    document.getElementById("btn-cambio-pass").addEventListener("submit", (event)=>{
+    document.getElementById("btn-cambio-pass").addEventListener("click", devolverAtras);
+    document.getElementById("formulario-cambio-paas").addEventListener("submit", (event)=>{
         event.preventDefault();
         validarContrasena();
     });

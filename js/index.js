@@ -10,11 +10,8 @@ async function validarEntradas() {
     alert("Ingreso Exitoso")
 }
 document.addEventListener("DOMContentLoaded", () => {
-    const formulario = document.getElementById("formulario-inicio-sesion");
-
-    formulario.addEventListener("click", event => {
+    document.getElementById("formulario-inicio-sesion").addEventListener("submit", (event) => {
         event.preventDefault(); 
-        alert("Formulario enviado");
         validarEntradas(); 
     });
 });

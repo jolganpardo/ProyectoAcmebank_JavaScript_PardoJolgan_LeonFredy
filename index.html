@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACME BANK</title>
     <link rel="stylesheet" href="./css/basic.css">
-    <script type="modulo" src="./js/index.js" defer></script>
+    <script type="module" src="./js/index.js" defer></script>
 
 </head>
 
 <body>
     <section>
-        <form id="formulario-inicio-sesion">
+        <form id="formulario-inicio-sesion" method="post">
             <label for="ingresoUsuario">Usuario: <input type="text" name="ingresoUsuario" id="ingresoUsuario" required></label>
             <label for="ingresoPass">Constraseña: <input type="password" name="ingresoPass" id="ingresoPass" required></label>
             <button type="submit" id="btn-inicio-sesion">Inicar Sesion</button>

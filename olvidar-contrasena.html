@@ -13,7 +13,7 @@
 
 <body>
     <section>
-        <form id="formulario-olvidar-pass">
+        <form id="formulario-olvidar-pass" method="post">
             <label for="tipoIdentificacionOlvidarPass">Tipo de <br> documento:
                 <select name="tipoIdentificacionOlvidarPass" id="tipoIdentificacionOlvidarPass" required>
                     <option value="vacio">Seleccione una opción</option>
@@ -32,7 +32,7 @@
             <button type="submit" id="btn-olvido-pass-verificar">Verificacion de credenciales</button>
         </form>
 
-        <form id="formulario-cambio-paas" class="ocultar">
+        <form id="formulario-cambio-paas" class="ocultar" method="post">
             <label class="atras-olvido-pass"><a id="btn-atras-olvido-pass">⬅ Atras</a></label>
             <label for="passwordNew">Nueva <br> Contraseña:
                 <input type="password" id="passwordNew" required>
