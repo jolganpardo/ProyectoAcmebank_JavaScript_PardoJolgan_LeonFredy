@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         datosFormulario();
     });
-    document.getElementById("btn-cambio-pass").addEventListener("click", devolverAtras);
+    document.getElementById("btn-atras-olvido-pass").addEventListener("click", devolverAtras);
     document.getElementById("formulario-cambio-paas").addEventListener("submit", (event)=>{
         event.preventDefault();
         validarContrasena();
