@@ -1,61 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACME BANK Registro</title>
-    <link rel="stylesheet" href="./css/registro.css">
-    <script type="module" src="js/registro.js"></script>
+    <title>ACME BANK</title>
+    <link rel="stylesheet" href="./css/basic.css">
+    <script type="modulo" src="./js/index.js" defer></script>
 
 </head>
+
 <body>
-    <form>
-        <label for="nombre">Nombre: 
-            <input type="text" id="nombre" required>
-        </label>
-        <label for="apellido">Apellido: 
-            <input type="text" id="apellido" required>
-        </label>
-        <label for="tipoIdentificacion">Tipo de documento: 
-            <select name="tipoIdentificacion" id="tipoIdentificacion" required>
-                <option value="vacio">Seleccione una opción</option>
-                <option value="Cedula">Cedula</option>
-                <option value="TarjetaIdentificación">Tarjeta de identificación</option>
-                <option value="CedulaExtranjeria">Cedula de extranjeria</option>
-                <option value="Pasaporte">Pasaporte</option>
-            </select>
-        </label>
-        <label for="documento">Documento: 
-            <input type="number" id="documento" required>
-        </label>
-        <label for="genero">Genero: 
-            <select name="genero" id="genero" required>
-                <option value="vacio">Seleccione una opción</option>
-                <option value="f">Femenino</option>
-                <option value="m">Masculino</option>
-            </select>
-        </label>
-        <label for="celular">Celular: 
-            <input type="tel" id="celular" min=10 max=10 required>
-        </label>
-        <label for="correo">Correo: 
-            <input type="email" id="correo" required>
-        </label>
-        <label for="direccion">Direccion: 
-            <input type="text" id="direccion" required>
-        </label>
-        <label for="ciudad">Ciudad: 
-            <input type="text" id="ciudad" required>
-        </label>
-        <label for="password">Contraseña: 
-            <input type="password" id="password" required>
-        </label>
-        <label for="passwordVerificacion">Contraseña Verificacion: 
-            <input type="password" id="passwordVerificacion" required>
-        </label>
-        <button id="btn-registrar-usuario">
-            Guardar
-        </button>
-    </form>
+    <section>
+        <form id="formulario-inicio-sesion">
+            <label for="ingresoUsuario">Usuario: <input type="text" name="ingresoUsuario" id="ingresoUsuario" required></label>
+            <label for="ingresoPass">Constraseña: <input type="password" name="ingresoPass" id="ingresoPass" required></label>
+            <button type="submit" id="btn-inicio-sesion">Inicar Sesion</button>
+            <div class="opciones-sesion">
+                <a id="btn-registrate-aqui">Registrate Aqui</a>
+                <a id="btn-cambiar-pass">Olvidaste la contraseña</a>
+            </div>
+        </form>
+        <iframe src="./registro.html" frameborder="0" , height="600" width="max-content"></iframe>
+        <iframe src="./olvidar-contrasena.html" frameborder="0" , height="600" width="max-content"></iframe>
+    </section>
+
 </body>
+
 </html>

@@ -1,0 +1,7 @@
+.ocultar{
+    display: none;
+}
+.atras-olvido-pass{
+    display: flex;
+    justify-content: right;
+}

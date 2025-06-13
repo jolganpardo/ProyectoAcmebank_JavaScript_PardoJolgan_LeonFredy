@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+input,
+select {
+    flex: 1;
+    padding: 3px;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+
+button {
+    display: block;
+    border-radius: 20px;
+    border: 1px solid gray;
+    width: 100%;
+}
+
+a,
+button {
+    cursor: pointer;
+    transition: ease-in 300ms;
+
+    &:hover {
+        color: rgb(8, 88, 236);
+        scale: 1.05;
+    }
+}
+
+
+.opciones-sesion {
+    display: flex;
+    justify-content: space-evenly;
+}

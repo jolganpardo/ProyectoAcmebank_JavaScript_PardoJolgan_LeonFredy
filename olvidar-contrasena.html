@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olividaste la Contraseña</title>
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/olvido-pass.css">
+    <script type="module" src="js/olvidar-pass.js" defer></script>
+
+</head>
+
+<body>
+    <section>
+        <form id="formulario-olvidar-pass">
+            <label for="tipoIdentificacionOlvidarPass">Tipo de <br> documento:
+                <select name="tipoIdentificacionOlvidarPass" id="tipoIdentificacionOlvidarPass" required>
+                    <option value="vacio">Seleccione una opción</option>
+                    <option value="Cedula">Cedula</option>
+                    <option value="TarjetaIdentificación">Tarjeta de identificación</option>
+                    <option value="CedulaExtranjeria">Cedula de extranjeria</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                </select>
+            </label>
+            <label for="documentoOlvidarPass">Documento:
+                <input type="number" id="documentoOlvidarPass" required>
+            </label>
+            <label for="correoOlvidarPass">Correo:
+                <input type="email" id="correoOlvidarPass" required>
+            </label>
+            <button type="submit" id="btn-olvido-pass-verificar">Verificacion de credenciales</button>
+        </form>
+
+        <form id="formulario-cambio-paas" class="ocultar">
+            <label class="atras-olvido-pass"><a id="btn-atras-olvido-pass">⬅ Atras</a></label>
+            <label for="passwordNew">Nueva <br> Contraseña:
+                <input type="password" id="passwordNew" required>
+            </label>
+            <label for="passwordVerificacionNew">Contraseña <br> Verificacion:
+                <input type="password" id="passwordVerificacionNew" required>
+            </label>
+            <button type="submit" id="btn-cambio-pass">
+                Cambiar Contraseña
+            </button>
+        </form>
+    </section>
+
+</body>
+
+</html>
