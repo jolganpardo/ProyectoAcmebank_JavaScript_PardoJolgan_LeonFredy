@@ -1,0 +1,23 @@
+body {
+    overflow-x: hidden;
+
+}
+
+iframe {
+    width: 90vw;
+    height: 100vh;
+    border: none;
+}
+
+.volver {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 5vw;
+    font-size: 1.7rem;
+}
+
+h1 {
+    text-align: center;
+}

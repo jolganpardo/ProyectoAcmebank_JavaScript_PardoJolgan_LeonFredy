@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="./css/basic.css">
     <link rel="stylesheet" href="./css/olvido-pass.css">
     <script type="module" src="js/olvidar-pass.js" defer></script>
+    <link rel="stylesheet" href="./css/formularios.css">
 
 </head>
 
 <body>
     <section>
         <form id="formulario-olvidar-pass" method="post">
-            <label for="tipoIdentificacionOlvidarPass">Tipo de <br> documento:
+            <label for="tipoIdentificacionOlvidarPass">Tipo de documento:
                 <select name="tipoIdentificacionOlvidarPass" id="tipoIdentificacionOlvidarPass" required>
                     <option value="vacio">Seleccione una opción</option>
                     <option value="Cedula">Cedula</option>
@@ -34,10 +35,10 @@
 
         <form id="formulario-cambio-paas" class="ocultar" method="post">
             <label class="atras-olvido-pass"><a id="btn-atras-olvido-pass">⬅ Atras</a></label>
-            <label for="passwordNew">Nueva <br> Contraseña:
+            <label for="passwordNew">Nueva Contraseña:
                 <input type="password" id="passwordNew" required>
             </label>
-            <label for="passwordVerificacionNew">Contraseña <br> Verificacion:
+            <label for="passwordVerificacionNew">Contraseña Verificacion:
                 <input type="password" id="passwordVerificacionNew" required>
             </label>
             <button type="submit" id="btn-cambio-pass">

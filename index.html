@@ -7,12 +7,15 @@
     <title>ACME BANK</title>
     <link rel="stylesheet" href="./css/basic.css">
     <script type="module" src="./js/index.js" defer></script>
-
+    <link rel="stylesheet" href="./css/formularios.css">
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 
 <body>
+    <label class="volver"><a id="btn-volver" style="display: none;">⬅ Volver</a></label>
     <section>
         <form id="formulario-inicio-sesion" method="post">
+        <h1>ACME BANK</h1>
             <label for="ingresoUsuario">Usuario: <input type="text" name="ingresoUsuario" id="ingresoUsuario" required></label>
             <label for="ingresoPass">Constraseña: <input type="password" name="ingresoPass" id="ingresoPass" required></label>
             <button type="submit" id="btn-inicio-sesion">Inicar Sesion</button>
@@ -21,8 +24,9 @@
                 <a id="btn-cambiar-pass">Olvidaste la contraseña</a>
             </div>
         </form>
-        <iframe src="./registro.html" frameborder="0" , height="600" width="max-content"></iframe>
-        <iframe src="./olvidar-contrasena.html" frameborder="0" , height="600" width="max-content"></iframe>
+        
+        <iframe id="pest-registro" src="./registro.html" frameborder="0" , height="600" width="max-content" style="display: none;"></iframe>
+        <iframe id="pest-cambiar-contraseña" src="./olvidar-contrasena.html" frameborder="0" , height="600" width="max-content" style="display: none;"></iframe>
     </section>
 
 </body>

@@ -1,0 +1,31 @@
+button {
+    display: flex;
+    position: relative;
+    padding: 0;
+    width: 70%;
+    height: 60%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 0 30px;
+}
+
+form {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+label {
+    padding-right: 25%;
+}
+
+.cont-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+select {
+    width: 122%;
+}
+
