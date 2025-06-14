@@ -1,82 +1,71 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html lang="en">
-=======
 <html lang="es">
->>>>>>> c2f84453d1f2742403ec605109f08ff4ea91942b
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME ACME BANK</title>
     <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/resumen.css">
 </head>
 
 <body>
-    <header>
-<<<<<<< HEAD
-        <main>
-            <div class="logo">
-                <h1>A B</h1>
-            </div>
-            <div class="datos">
-                <div class="iniciales">
-                    <h2 id="letas-iniciales"></h2>
+    <div class="layout">
+        <header>
+            <h1 id="tittle">Acme Bank</h1>
+            <button id="log-out">Cerrar Sesión</button>
+        </header>
+        <aside id="datos-usuario">
+            <h2>Hola, Jolgan Pardo</h2>
+            <p><strong>Número de cuenta: </strong> <br> 123456789</p>
+            <p><strong>Saldo:</strong> $10.000.000</p>
+            <details>
+                <summary id="resumen-transacciones">
+                    <div class="summary-header">
+                        <span>Últimos movimientos</span>
+                        <a id="btn-imprimir" title="Imprimir">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="6,9 6,2 18,2 18,9"></polyline>
+                                <path d="M6,18H4a2,2,0,0,1-2-2V11a2,2,0,0,1,2-2H20a2,2,0,0,1,2,2v5a2,2,0,0,1-2,2H18">
+                                </path>
+                                <rect x="6" y="14" width="12" height="8"></rect>
+                            </svg>
+                        </a>
+                    </div>
+                </summary>
+                <div class="transactions-container">
+                    <div class="transaction-item">
+                        <div>
+                            <p class="transaction-date">2025-06-13</p>
+                            <p class="transaction-ref">REF: TX001234567</p>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-type transferencia">Transferencia</div>
+                            <div class="transaction-desc">Pago servicios públicos</div>
+                            <div class="transaction-amount negative">-$150.000</div>
+                        </div>
+                    </div>
+
                 </div>
-                <h2 id="numeroCuenta"></h2>
-            </div>
-            <div class="cerra-sesion">
-                <a href="#">Cerrra Sesion🔐</a>
-            </div>
+            </details>
+
+        </aside>
+        <main id="dashboard">
+
         </main>
-
-    </header>
-    <section class="contenido">
-
-        <section><iframe id="pest-Resumen" src="./resumen.html" frameborder="0"></iframe></section>
-        <section><iframe id="pest-Consignación" src="./consignacion.html" frameborder="0"></iframe></section>
-        <section><iframe id="pest-Retirar" src="./retirar.html" frameborder="0"></iframe></section>
-        <section><iframe id="pest-Pago-Servicios" src="./servicios.html" frameborder="0"></iframe></section>
-        <section><iframe id="pest-Extracto" src="./extracto.html" frameborder="0"></iframe></section>
-        <section><iframe id="pest-Certificados" src="./certificados.html" frameborder="0"></iframe></section>
-    </section>
-
-    <footer>
-        <nav class="nav-links">
-            <ul>
+        <footer>
+            <nav id="navegacion">
+                <a href="#pest-principal">Inicio</a>
                 <a href="#pest-Resumen">Resumen</a>
                 <a href="#pest-Consignación">Consignación</a>
                 <a href="#pest-Retirar">Retirar</a>
                 <a href="#pest-Pago-Servicios">Pago Servicios</a>
                 <a href="#pest-Extracto">Extracto</a>
                 <a href="#pest-Certificados">Certificados</a>
-                <a href="#pest-Cerra Sesión">Cerra Sesión</a>
-            </ul>
-        </nav>
-    </footer>
-=======
-        <h1 id="tittle">Acme Bank</h1>
-        <button id="log-out">Cerrar Sesión</button>
-    </header>
-
-    <section id="datos-usuario">
-        <h1>Hola, Jolgan Pardo</h1>
-        <h3>Numero de cuenta</h3>
-        <h3>Saldo</h3>
-    </section>
-
-    <tfoot>
-        <nav id="navegacion">
-            <a href="#pest-principal">Inicio</a>
-            <a href="#pest-Resumen">Resumen</a>
-            <a href="#pest-Consignación">Consignación</a>
-            <a href="#pest-Retirar">Retirar</a>
-            <a href="#pest-Pago-Servicios">Pago Servicios</a>
-            <a href="#pest-Extracto">Extracto</a>
-            <a href="#pest-Certificados">Certificados</a>
-        </nav>
-    </tfoot>
->>>>>>> c2f84453d1f2742403ec605109f08ff4ea91942b
+            </nav>
+        </footer>
+    </div>
 </body>
 
 </html>

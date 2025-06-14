@@ -1,0 +1,164 @@
+/* RESUMEN DE TRANSACCIONES */
+#resumen-transacciones {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e74c3c;
+}
+
+.summary-header h3 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+#btn-imprimir {
+    width: max-content;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    color: #27ae60;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+#btn-imprimir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+}
+
+.transactions-container {
+    margin: 10px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 15px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 8px;
+    border-left: 3px solid #3498db;
+    font-size: 0.85rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.transaction-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateX(2px);
+}
+
+.transaction-date {
+    color: #7f8c8d;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.transaction-ref {
+    color: #95a5a6;
+    font-size: 0.7rem;
+    font-family: monospace;
+}
+
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.transaction-type {
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.transaction-type.transferencia {
+    background: rgba(52, 152, 219, 0.15);
+    color: #2980b9;
+}
+
+.transaction-type.deposito {
+    background: rgba(46, 204, 113, 0.15);
+    color: #27ae60;
+}
+
+.transaction-type.retiro {
+    background: rgba(231, 76, 60, 0.15);
+    color: #c0392b;
+}
+
+.transaction-type.pago {
+    background: rgba(155, 89, 182, 0.15);
+    color: #8e44ad;
+}
+
+.transaction-desc {
+    color: #34495e;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.transaction-amount {
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.transaction-amount.positive {
+    color: #27ae60;
+}
+
+.transaction-amount.negative {
+    color: #e74c3c;
+}
+
+/* Scrollbar */
+.transactions-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.transactions-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.transactions-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border-radius: 10px;
+}
+summary#resumen-transacciones {
+    list-style: none;
+}
+
+summary#resumen-transacciones::-webkit-details-marker {
+    display: none;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2c3e50;
+}
