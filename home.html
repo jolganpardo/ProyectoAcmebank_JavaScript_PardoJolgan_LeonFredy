@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME ACME BANK</title>
+    <link rel="stylesheet" href="./css/home.css">
 </head>
+
 <body>
     <header>
-        <nav>
+        <main>
+            <div class="logo">
+                <h1>A B</h1>
+            </div>
+            <div class="datos">
+                <div class="iniciales">
+                    <h2 id="letas-iniciales"></h2>
+                </div>
+                <h2 id="numeroCuenta"></h2>
+            </div>
+            <div class="cerra-sesion">
+                <a href="#">Cerrra Sesion🔐</a>
+            </div>
+        </main>
+
+    </header>
+    <section class="contenido">
+
+        <section><iframe id="pest-Resumen" src="./resumen.html" frameborder="0"></iframe></section>
+        <section><iframe id="pest-Consignación" src="./consignacion.html" frameborder="0"></iframe></section>
+        <section><iframe id="pest-Retirar" src="./retirar.html" frameborder="0"></iframe></section>
+        <section><iframe id="pest-Pago-Servicios" src="./servicios.html" frameborder="0"></iframe></section>
+        <section><iframe id="pest-Extracto" src="./extracto.html" frameborder="0"></iframe></section>
+        <section><iframe id="pest-Certificados" src="./certificados.html" frameborder="0"></iframe></section>
+    </section>
+
+    <footer>
+        <nav class="nav-links">
             <ul>
-                <li><a href="#pest-Resumen">Resumen</a></li>
-                <li><a href="#pest-Consignación">Consignación</a></li>
-                <li><a href="#pest-Retirar">Retirar</a></li>
-                <li><a href="#pest-Pago-Servicios">Pago Servicios</a></li>
-                <li><a href="#pest-Extracto">Extracto</a></li>
-                <li><a href="#pest-Certificados">Certificados</a></li>
-                <li><a href="#pest-Cerra Sesión">Cerra Sesión</a></li>
+                <a href="#pest-Resumen">Resumen</a>
+                <a href="#pest-Consignación">Consignación</a>
+                <a href="#pest-Retirar">Retirar</a>
+                <a href="#pest-Pago-Servicios">Pago Servicios</a>
+                <a href="#pest-Extracto">Extracto</a>
+                <a href="#pest-Certificados">Certificados</a>
+                <a href="#pest-Cerra Sesión">Cerra Sesión</a>
             </ul>
         </nav>
-    </header>
+    </footer>
 </body>
+
 </html>
