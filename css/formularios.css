@@ -1,0 +1,67 @@
+body {
+    background-color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: black;
+    margin: 0;
+    padding: 4rem 1.5rem;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 1.2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    padding: 3.5rem 4.5rem 4.5rem 4.5rem;
+    position: relative;
+    border: 2px solid lightgray;
+    animation: 1s;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+    color: black;
+    font-size: 1rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem 1.1rem;
+    border: 2px solid lightgray;
+    border-radius: 0.6rem;
+    font-size: 1.05rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    color: black;
+}
+
+select {
+    width: 111%;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 0.6rem;
+    padding: 0.9rem 2.2rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 0.8rem;
+    font-size: 1.15rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    user-select: none;
+    transition: 1s;
+    border: 2px solid lightgray;
+    width: 111%;
+}
