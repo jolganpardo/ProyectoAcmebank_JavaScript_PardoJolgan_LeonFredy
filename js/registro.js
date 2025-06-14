@@ -41,7 +41,6 @@ async function validarDatosResgistroUsuario() {
         movimientos: []
     };
     const respuesta = await registrarUsuarios(document.getElementById("documento").value, datos);
-    console.log(respuesta)
     if (respuesta.ok) {
         alert("Usuario: " + datos.usuario + " \n N° cuenta: " + datos.cuenta)
         document.getElementById("formulario-registro").reset();

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 :root {
     --color-principal: rgb(153, 162, 194);
@@ -57,4 +58,80 @@ main{
 footer {
     position: sticky;
     bottom: 0;
+=======
+body {
+    background-color: #E5E7EB;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100vh;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #14223d;
+    margin: -1vw;
+}
+
+#tittle {
+    color: whitesmoke;
+}
+
+#log-out {
+    background-color: lightgray;
+    padding: 10px;
+    height: 50px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 1s;
+    border: none;
+    font-weight: bold;
+    font-size: 1.3rem;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+#navegacion {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 65px;
+  background-color: #39496f;
+  margin-left: -10px;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#navegacion a {
+    color: white;
+    text-decoration: none;
+    transition: 0.7s ease;
+    font-weight: bold;
+    
+
+    &:hover {
+        font-size: 1.4rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 15px;
+        padding: 10px;
+    }
+}
+
+#datos-usuario {
+    position: fixed;
+    width: 25vw;
+    height: 100vh;
+    margin-left: -10px;
+    padding-top: 70px;
+    background-color: lightgray;
+    padding-left: 20px;
+>>>>>>> c2f84453d1f2742403ec605109f08ff4ea91942b
 }

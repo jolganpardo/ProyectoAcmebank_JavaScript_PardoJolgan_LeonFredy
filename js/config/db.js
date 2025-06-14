@@ -30,10 +30,8 @@ async function encriptarContraseña(contraseña) {
 }
 
 async function compararContraseña(contraseñaIngresada, contraseñaEncriptada) {
-    console.log(contraseñaEncriptada);
     
     const hash = await encriptarContraseña(contraseñaIngresada);
-    console.log(hash);
     return hash === contraseñaEncriptada;
 }
 

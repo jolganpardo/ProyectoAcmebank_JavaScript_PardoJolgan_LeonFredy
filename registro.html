@@ -6,6 +6,8 @@
     <title>ACME BANK Registro</title>
     <link rel="stylesheet" href="./css/basic.css">
     <script type="module" src="js/registro.js" defer></script>
+    <link rel="stylesheet" href="./css/formularios.css">
+    <link rel="stylesheet" href="./css/registro.css">
 </head>
 <body>
     <form id="formulario-registro" method="post">
@@ -15,7 +17,7 @@
         <label for="apellido">Apellido: 
             <input type="text" id="apellido" required>
         </label>
-        <label for="tipoIdentificacion">Tipo de <br>documento: 
+        <label for="tipoIdentificacion">Tipo de documento: 
             <select name="tipoIdentificacion" id="tipoIdentificacion" required>
                 <option value="vacio">Seleccione una opción</option>
                 <option value="Cedula">Cedula</option>
@@ -49,12 +51,14 @@
         <label for="password">Contraseña: 
             <input type="password" id="password" required>
         </label>
-        <label for="passwordVerificacion">Contraseña <br> Verificacion: 
+        <label for="passwordVerificacion">Confirma tu Contraseña: 
             <input type="password" id="passwordVerificacion" required>
         </label>
+        <div class="cont-buttons">
         <button type="submit" id="btn-registrar-usuario">
             Registrarme 
         </button>
+        </div>
     </form>
 </body>
 </html>

@@ -4,4 +4,5 @@
 .atras-olvido-pass{
     display: flex;
     justify-content: right;
+    font-size: 1.7rem;
 }
