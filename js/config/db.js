@@ -228,7 +228,7 @@ export async function datosIniciar(id) {
 
 }
 
-const claveSecreta = "!#$%&/1234567890"; // 16 caracteres (128 bits)
+const claveSecreta = "!#$%&/1234567890";
 
 
 export async function encriptarUser(user, id) {
@@ -253,4 +253,9 @@ export async function desencriptarUser(encryptedUserData) {
         usuario: user,
         id: id
     };
+}
+
+export async function retirar(saldo, monto) {
+    
+
 }

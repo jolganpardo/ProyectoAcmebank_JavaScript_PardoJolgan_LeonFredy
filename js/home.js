@@ -1,6 +1,6 @@
 import {datosIniciar, desencriptarUser} from "./config/db.js";
 var puntos = new Intl.NumberFormat('es-CO').format;
-async function localGet() {
+export async function localGet() {
     const datosStr = localStorage.getItem("datos");
     if (!datosStr) {
         return null;
