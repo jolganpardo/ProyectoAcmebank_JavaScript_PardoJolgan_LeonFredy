@@ -55,7 +55,7 @@ export async function registrarUsuarios(id, datos) {
     datos.password = await encriptarContraseña(datos.password);
     try {
         await set(ref(db, 'clientes/' + id), datos);
-        await set(ref(db, 'usuarios/' + datos.usuario), {[pass]:datos.password,[id]:id});
+        await set(ref(db, 'usuarios/' + datos.usuario), {pass:datos.password,id:id});
         return { ok: true };
     } catch (error) {
         return { ok: false, error: error };
