@@ -2,7 +2,6 @@ import {datosIniciar} from "./config/db.js";
 var puntos = new Intl.NumberFormat('es-CO').format;
 async function localGet() {
     return JSON.parse(localStorage.getItem("datos"));
-
 }
 function capitalizarCadaPalabra(frase) {
   return frase
@@ -14,7 +13,7 @@ function capitalizarCadaPalabra(frase) {
 }
 async function cargarDatos() {
     const user = await localGet();
-    console.log(user)
+    
     if(!user){
         return window.location.href = "./index.html"
     }
@@ -24,9 +23,13 @@ async function cargarDatos() {
         document.getElementById("userCuenta").textContent = datosUser.datos.cuenta;
         
         document.getElementById("userSaldo").textContent = "$ " +puntos(datosUser.datos.saldo);
-
-
     }
 }
+const btnLogOut = document.getElementById("log-out");
+
+btnLogOut.addEventListener("click", () => {
+        localStorage.removeItem("datos");
+        location.reload();
+})
 
 document.addEventListener("DOMContentLoaded", cargarDatos);

@@ -1,4 +1,5 @@
-import {ingresoInicioSesion} from "./config/db.js";
+import {ingresoInicioSesion, encriptarUser, desencriptarUser} from "./config/db.js";
+
 async function local(datos) {
     localStorage.setItem("datos",JSON.stringify(datos));    
 }
@@ -10,9 +11,10 @@ async function validarEntradas() {
     if (!respuestaIngreso.ok){
         return alert(respuestaIngreso.error);
     }
-    await local(respuestaIngreso.datos);
+    const dtaInc = await encriptarUser(respuestaIngreso.datos.usuario, respuestaIngreso.datos.id)
+    await local(dtaInc);
     window.location.href = "./home.html"
-}
+};
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("formulario-inicio-sesion").addEventListener("submit", (event) => {
         event.preventDefault(); 
