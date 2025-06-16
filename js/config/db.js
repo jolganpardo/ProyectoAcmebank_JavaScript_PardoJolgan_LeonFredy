@@ -55,7 +55,7 @@ export async function registrarUsuarios(id, datos) {
     datos.password = await encriptarContraseña(datos.password);
     try {
         await set(ref(db, 'clientes/' + id), datos);
-        await set(ref(db, 'usuarios/' + datos.usuario), datos.password);
+        await set(ref(db, 'usuarios/' + datos.usuario), {[pass]:datos.password,[id]:id});
         return { ok: true };
     } catch (error) {
         return { ok: false, error: error };
@@ -70,7 +70,9 @@ export async function ingresoInicioSesion(user, password) {
             error: "Usuario o contraseña inválida"
         };
     }
-    const hashGuardado = usuarioSnap.val();
+    const datos = usuarioSnap.val();
+    const hashGuardado = datos.pass;
+
     const esValida = await compararContraseña(password, hashGuardado);
     if (!esValida) {
         return {
@@ -90,7 +92,7 @@ export async function cambiarPass(id, newPass) {
         await update(ref(db, 'clientes/' + id), { password: newPassCodi });
         const usuarioSnap = await get(ref(db, 'clientes/' + id + '/usuario'));
         const nombreUsuario = usuarioSnap.val();
-        await update(ref(db, 'usuarios/'),{[nombreUsuario]: newPassCodi});
+        await update(ref(db, 'usuarios/'+nombreUsuario),{[pass]: newPassCodi});
         return {
             ok: true
         };
