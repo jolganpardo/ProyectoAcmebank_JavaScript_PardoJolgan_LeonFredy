@@ -27,7 +27,7 @@ label {
 }
 
 input, select {
-    width: 100%;
+    width: 80%;
     padding: 0.8rem 1.1rem;
     border: 2px solid lightgray;
     border-radius: 0.6rem;
@@ -38,7 +38,7 @@ input, select {
 }
 
 select {
-    width: 111%;
+    width: 100%;
 }
 
 input:focus, select:focus {
@@ -54,14 +54,25 @@ button {
     padding: 0.9rem 2.2rem;
     border: none;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    margin: auto;
+    padding: auto;
     gap: 0.8rem;
     font-size: 1.15rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
     user-select: none;
     transition: 1s;
     border: 2px solid lightgray;
-    width: 111%;
+    width: 80%;
+}
+
+.col{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "h1 h1"
+    "div1 div1";
+}
+.bloque{
+    text-align: center;
+    grid-area: h1;
 }
