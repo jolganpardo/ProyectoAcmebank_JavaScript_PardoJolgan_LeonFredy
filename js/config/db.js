@@ -247,13 +247,8 @@ export async function encriptarUser(user, id) {
 }
 
 export async function desencriptarUser(encryptedUserData) {
-
     const user = await desencriptarDatos(encryptedUserData.usuario, claveSecreta);
     const id = await desencriptarDatos(encryptedUserData.id, claveSecreta);
-
-    console.log("Usuario desencriptado:", user);
-    console.log("ID desencriptado:", id);
-
     return {
         usuario: user,
         id: id
