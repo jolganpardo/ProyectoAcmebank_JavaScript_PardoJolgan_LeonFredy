@@ -9,11 +9,10 @@ body {
 .layout {
     display: grid;
     grid-template-columns: 310px 1fr;
-    grid-template-rows: 80px 1fr 70px;
+    grid-template-rows: 80px 1fr;
     grid-template-areas:
         "header header"
-        "aside main"
-        "footer footer";
+        "aside main";
     height: 100vh;
     width: 100vw;
     backdrop-filter: blur(10px);
@@ -81,17 +80,6 @@ main {
     padding: 1rem;
     overflow-y: auto;
     background: linear-gradient(45deg, #f1f3fb, #f3f1fb);
-}
-
-footer {
-    grid-area: footer;
-    background-color: #2c3e50;
-    color: white;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 12px;
-    padding: 0 1rem;
 }
 #navegacion {
     display: flex;

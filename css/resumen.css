@@ -1,5 +1,5 @@
 .transactions-container {
-    max-height: 55vh;  /* usa el 60% de la altura visible del navegador */
+    max-height: 50vh;  /* usa el 60% de la altura visible del navegador */
     overflow-y: auto;
     padding-right: 1px;
     
