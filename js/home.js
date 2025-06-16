@@ -9,7 +9,7 @@ export async function localGet() {
     const date = await desencriptarUser(datos);
     return date;
 }
-function capitalizarCadaPalabra(frase) {
+export function capitalizarCadaPalabra(frase) {
   return frase
     .split(' ')
     .map(palabra =>
@@ -31,12 +31,15 @@ async function cargarDatos() {
         document.getElementById("userSaldo").textContent = "$ " +puntos(datosUser.datos.saldo);
     }
 }
-const btnLogOut = document.getElementById("log-out");
 
-btnLogOut.addEventListener("click", () => {
-        localStorage.removeItem("datos");
-        location.reload();
-})
 
-document.addEventListener("DOMContentLoaded", cargarDatos);
+document.addEventListener("DOMContentLoaded", ()=>{
+    let btnLogOut = document.getElementById("log-out");
+
+    btnLogOut.addEventListener("click", () => {
+            localStorage.removeItem("datos");
+            location.reload();
+    })
+    cargarDatos()
+});
 
