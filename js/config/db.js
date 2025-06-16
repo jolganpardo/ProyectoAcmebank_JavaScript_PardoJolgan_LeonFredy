@@ -70,7 +70,9 @@ export async function ingresoInicioSesion(user, password) {
             error: "Usuario o contraseña inválida"
         };
     }
-    const hashGuardado = usuarioSnap.val();
+    const datos = usuarioSnap.val();
+    const hashGuardado = datos.pass;
+
     const esValida = await compararContraseña(password, hashGuardado);
     if (!esValida) {
         return {
@@ -90,7 +92,7 @@ export async function cambiarPass(id, newPass) {
         await update(ref(db, 'clientes/' + id), { password: newPassCodi });
         const usuarioSnap = await get(ref(db, 'clientes/' + id + '/usuario'));
         const nombreUsuario = usuarioSnap.val();
-        await update(ref(db, 'usuarios/'),{[nombreUsuario]: newPassCodi});
+        await update(ref(db, 'usuarios/'+nombreUsuario),{[pass]: newPassCodi});
         return {
             ok: true
         };
