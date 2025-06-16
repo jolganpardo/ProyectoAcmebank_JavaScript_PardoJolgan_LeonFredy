@@ -7,6 +7,8 @@
     <title>HOME ACME BANK</title>
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/resumen.css">
+    <script type="module" src="./js/home.js" defer></script>
+
 </head>
 
 <body>
@@ -17,9 +19,9 @@
         </header>
         <aside id="datos-usuario" class="lightgray">
             <div class="datos-cliente">
-                <h2>Hola, Jolgan Pardo</h2>
-                <p><strong>Número de cuenta: </strong> <br> 123456789</p>
-                <p><strong>Saldo:</strong> $10.000.000</p>
+                <h2>Hola, <span id="userNombre"></span></h2>
+                <p><strong>Número de cuenta: </strong> <br> <span id="userCuenta"></span></p>
+                <p><strong>Saldo: </strong><span id="userSaldo"></span> </p>
             </div>
             <details >
                 <summary id="resumen-transacciones">

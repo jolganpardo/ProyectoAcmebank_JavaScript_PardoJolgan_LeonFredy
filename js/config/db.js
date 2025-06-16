@@ -30,7 +30,7 @@ async function encriptarContraseña(contraseña) {
 }
 
 async function compararContraseña(contraseñaIngresada, contraseñaEncriptada) {
-    
+
     const hash = await encriptarContraseña(contraseñaIngresada);
     return hash === contraseñaEncriptada;
 }
@@ -52,10 +52,11 @@ export async function registrarUsuarios(id, datos) {
     if (!newClient.ok) {
         return newClient
     }
+    datos.saldo = 0;
     datos.password = await encriptarContraseña(datos.password);
     try {
         await set(ref(db, 'clientes/' + id), datos);
-        await set(ref(db, 'usuarios/' + datos.usuario), {pass:datos.password,id:id});
+        await set(ref(db, 'usuarios/' + datos.usuario), { pass: datos.password, id: id });
         return { ok: true };
     } catch (error) {
         return { ok: false, error: error };
@@ -72,6 +73,7 @@ export async function ingresoInicioSesion(user, password) {
     }
     const datos = usuarioSnap.val();
     const hashGuardado = datos.pass;
+    const id = datos.id;
 
     const esValida = await compararContraseña(password, hashGuardado);
     if (!esValida) {
@@ -81,7 +83,11 @@ export async function ingresoInicioSesion(user, password) {
         };
     }
     return {
-        ok: true
+        ok: true,
+        datos: {
+            usuario: user,
+            id: id
+        }
     };
 }
 
@@ -92,7 +98,7 @@ export async function cambiarPass(id, newPass) {
         await update(ref(db, 'clientes/' + id), { password: newPassCodi });
         const usuarioSnap = await get(ref(db, 'clientes/' + id + '/usuario'));
         const nombreUsuario = usuarioSnap.val();
-        await update(ref(db, 'usuarios/'+nombreUsuario),{[pass]: newPassCodi});
+        await update(ref(db, 'usuarios/' + nombreUsuario), { pass: newPassCodi });
         return {
             ok: true
         };
@@ -107,19 +113,42 @@ export async function cambiarPass(id, newPass) {
 
 export async function validarCredenciales(datos) {
     const clienteSnap = await get(ref(db, 'clientes/' + datos.documento));
-    if (!clienteSnap.exists()){
+    if (!clienteSnap.exists()) {
         return {
             ok: false,
             error: "Datos incorrectos"
         }
     }
-    if(clienteSnap.val().correo === datos.correo && clienteSnap.val().tipoIdentificacion === datos.tipoIdentificacion){
+    if (clienteSnap.val().correo === datos.correo && clienteSnap.val().tipoIdentificacion === datos.tipoIdentificacion) {
         return {
             ok: true
         }
     }
     return {
-        ok:false,
+        ok: false,
         error: "Datos incorrectos 1"
     }
+}
+
+export async function datosIniciar(id) {
+    try {
+        const usuarioSnap = await get(ref(db, 'clientes/' + id));
+        const datos = usuarioSnap.val();
+        const saldo = datos.saldo? datos.saldo:0;
+        return {
+            ok: true,
+            datos: {
+                cuenta: datos.cuenta,
+                saldo:saldo,
+                nombre: datos.nombre,
+                apellido: datos.apellido
+            }
+        };
+    } catch (error) {
+        return {
+            ok: false,
+            error: error.message || error
+        };
+    }
+
 }
