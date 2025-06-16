@@ -228,12 +228,6 @@ export async function datosIniciar(id) {
 
 }
 
-// export async function encriptarUser(user, id) {
-//     const userInc = await encriptarContraseña(user);
-//     const idInc = await encriptarContraseña(id);
-//     console.log(userInc, idInc);
-//     return {usuario: userInc, id: idInc}
-// }
 const claveSecreta = "!#$%&/1234567890"; // 16 caracteres (128 bits)
 
 
