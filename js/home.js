@@ -1,9 +1,13 @@
 import {datosIniciar, desencriptarUser} from "./config/db.js";
 var puntos = new Intl.NumberFormat('es-CO').format;
 async function localGet() {
-    const datos = JSON.parse(localStorage.getItem("datos"));
+    const datosStr = localStorage.getItem("datos");
+    if (!datosStr) {
+        return null;
+    }
+    const datos = JSON.parse(datosStr);
     const date = await desencriptarUser(datos);
-    return date
+    return date;
 }
 function capitalizarCadaPalabra(frase) {
   return frase
@@ -35,3 +39,4 @@ btnLogOut.addEventListener("click", () => {
 })
 
 document.addEventListener("DOMContentLoaded", cargarDatos);
+
