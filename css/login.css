@@ -1,0 +1,64 @@
+body {
+    overflow-x: hidden;
+
+}
+
+iframe {
+    width: 90vw;
+    height: 100vh;
+    border: none;
+}
+
+.volver {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 5vw;
+    font-size: 1.7rem;
+}
+
+h1 {
+    text-align: center;
+}
+@media (max-width: 1024px) {
+    iframe {
+        width: 95vw;
+        height: 95vh;
+    }
+    .volver {
+        font-size: 1.5rem;
+        margin: 4vw;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    iframe {
+        width: 98vw;
+        height: 90vh;
+    }
+    .volver {
+        font-size: 1.2rem;
+        margin: 3vw;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 468px) {
+    iframe {
+        width: 100vw;
+        height: 100vh;
+    }
+    .volver {
+        font-size: 1rem;
+        margin: 2vw;
+    }
+    h1 {
+        font-size: 1.1rem;
+    }
+}

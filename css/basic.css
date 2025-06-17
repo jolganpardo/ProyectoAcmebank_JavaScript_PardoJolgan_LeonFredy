@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+input,
+select {
+    flex: 1;
+    padding: 3px;
+    border-radius: 20px;
+    border: 1px solid gray;
+}
+
+button {
+    display: block;
+    border-radius: 20px;
+    border: 1px solid gray;
+    width: 100%;
+}
+
+a,
+button {
+    cursor: pointer;
+    transition: ease-in 300ms;
+
+    &:hover {
+        color: rgb(8, 88, 236);
+        scale: 1.05;
+    }
+}
+
+
+.opciones-sesion {
+    display: flex;
+    justify-content: space-evenly;
+    width: 111%;
+    margin-left: -10%;
+}
+
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .opciones-sesion {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    input,
+    select {
+        width: 100%;
+        min-width: 0;
+    }
+    button {
+        width: 100%;
+    }
+    .opciones-sesion {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 468px) {
+    body {
+        padding: 0.5rem;
+    }
+    label {
+        font-size: 0.95rem;
+    }
+    input,
+    select {
+        font-size: 1rem;
+        padding: 6px;
+    }
+    button {
+        font-size: 1rem;
+        padding: 8px 0;
+    }
+    .opciones-sesion {
+        gap: 0.5rem;
+    }
+}
