@@ -259,7 +259,7 @@ export async function retirar(id, valor) {
     try {
         const clienteSnap = await get(ref(db, 'clientes/' + id));
         if (!clienteSnap.exists()) {
-            return { ok: false, error: "Cliente no encontrado" };
+            return { ok: false, error: "Usuario no encontrado" };
         }
         const datos = clienteSnap.val();
         const saldoActual = datos.saldo || 0;
@@ -276,6 +276,28 @@ export async function retirar(id, valor) {
         }
 
         const nuevoSaldo = saldoActual - monto;
+        await update(ref(db, 'clientes/' + id), { saldo: nuevoSaldo });
+        return { ok: true, saldo: nuevoSaldo };
+    } catch (error) {
+        return { ok: false, error: error.message || error };
+    }
+}
+
+export async function consignar(id, valor) {
+    try {
+        const clienteSnap = await get(ref(db, 'clientes/' + id));
+        if (!clienteSnap.exists()) {
+            return { ok: false, error: "Usuario no encontrado" };
+        }
+        const datos = clienteSnap.val();
+        const saldoActual = datos.saldo || 0;
+        const monto = parseInt(valor);
+
+        if (isNaN(monto) || monto <= 0) {
+            return { ok: false, error: "Monto no válido" };
+        }
+
+        const nuevoSaldo = saldoActual + monto;
         await update(ref(db, 'clientes/' + id), { saldo: nuevoSaldo });
         return { ok: true, saldo: nuevoSaldo };
     } catch (error) {
