@@ -259,12 +259,19 @@ export async function desencriptarUser(encryptedUserData) {
     };
 }
 
+// Función para generar número de referencia aleatorio
+function generarReferencia() {
+    return "REF" + Math.floor(100000 + Math.random() * 900000);
+}
+
 export async function retirar(id, valor) {
     try {
-        const clienteSnap = await get(ref(db, 'clientes/' + id));
+        const clienteRef = ref(db, 'clientes/' + id);
+        const clienteSnap = await get(clienteRef);
         if (!clienteSnap.exists()) {
             return { ok: false, error: "Usuario no encontrado" };
         }
+
         const datos = clienteSnap.val();
         const saldoActual = datos.saldo || 0;
         const monto = parseInt(valor);
@@ -280,8 +287,22 @@ export async function retirar(id, valor) {
         }
 
         const nuevoSaldo = saldoActual - monto;
-        await update(ref(db, 'clientes/' + id), { saldo: nuevoSaldo });
-        return { ok: true, saldo: nuevoSaldo };
+        await update(clienteRef, { saldo: nuevoSaldo });
+
+        // Crear transacción
+        const referencia = generarReferencia();
+        const fecha = new Date().toISOString();
+        const movimiento = {
+            referencia,
+            fecha,
+            tipo: "Retiro",
+            descripcion: "Retiro de dinero",
+            valor: monto
+        };
+
+        await set(ref(db, 'clientes/' + id + '/movimientos/retiros/' + referencia), movimiento);
+        
+        return { ok: true, saldo: nuevoSaldo, resumen: movimiento };
     } catch (error) {
         return { ok: false, error: error.message || error };
     }
@@ -289,10 +310,12 @@ export async function retirar(id, valor) {
 
 export async function consignar(id, valor) {
     try {
-        const clienteSnap = await get(ref(db, 'clientes/' + id));
+        const clienteRef = ref(db, 'clientes/' + id);
+        const clienteSnap = await get(clienteRef);
         if (!clienteSnap.exists()) {
             return { ok: false, error: "Usuario no encontrado" };
         }
+
         const datos = clienteSnap.val();
         const saldoActual = datos.saldo || 0;
         const monto = parseInt(valor);
@@ -302,22 +325,53 @@ export async function consignar(id, valor) {
         }
 
         const nuevoSaldo = saldoActual + monto;
-        await update(ref(db, 'clientes/' + id), { saldo: nuevoSaldo });
-        return { ok: true, saldo: nuevoSaldo };
+        await update(clienteRef, { saldo: nuevoSaldo });
+
+        const referencia = generarReferencia();
+        const fecha = new Date().toISOString();
+        const movimiento = {
+            referencia,
+            fecha,
+            tipo: "Consignación",
+            descripcion: "Consignación por canal electrónico",
+            valor: monto,
+        };
+
+        await set(ref(db, 'clientes/' + id + '/movimientos/consignaciones/' + referencia), movimiento);
+
+        return { ok: true, saldo: nuevoSaldo, resumen: movimiento };
     } catch (error) {
         return { ok: false, error: error.message || error };
     }
 }
-export async function pagarServicio(id, servicio, monto) {
+
+export async function cargarMovimientos(id) {
+    const retirosSnap = await get(ref(db, 'clientes/' + id + '/movimientos/retiros'));
+    const consignacionesSnap = await get(ref(db, 'clientes/' + id + '/movimientos/consignaciones'));
+    const serviciosSnap = await get(ref(db, 'clientes/' + id + '/movimientos/pagoServicio'));
+    
+    return{
+        ok: true,
+        retiros:retirosSnap,
+        consignaciones: consignacionesSnap,
+        servicios:serviciosSnap
+    }
+}
+
+// Función principal para pagar servicio
+export async function pagarServicio(id, servicio, valorPago) {
     try {
+        // Obtener datos del cliente desde la base de datos
         const clienteSnap = await get(ref(db, 'clientes/' + id));
         if (!clienteSnap.exists()) {
             return { ok: false, error: "Usuario no encontrado" };
         }
+
         const datos = clienteSnap.val();
         const saldoActual = datos.saldo || 0;
-        const valor = parseFloat(monto);
+        const valor = parseFloat(valorPago);
 
+        // Validaciones
         if (isNaN(valor) || valor <= 0) {
             return { ok: false, error: "Monto no válido" };
         }
@@ -325,13 +379,31 @@ export async function pagarServicio(id, servicio, monto) {
             return { ok: false, error: "Saldo insuficiente para pagar el servicio" };
         }
 
+        // Cálculo del nuevo saldo
         const nuevoSaldo = saldoActual - valor;
-        await update(ref(db, 'clientes/' + id), { saldo: nuevoSaldo });
+        const referencia = generarReferencia();
+        const fecha = new Date().toISOString();
 
-        await set(ref(db, `clientes/${id}/pagosServicios/${Date.now()}`), { servicio, monto: valor, fecha: new Date().toISOString() });
+        // Actualizar el saldo en la base de datos
+        await update(ref(db, `clientes/${id}`), { saldo: nuevoSaldo });
 
-        return { ok: true, saldo: nuevoSaldo };
+        // Registrar en historial de movimientos
+        const movimiento = {
+            referencia,
+            tipo: "pago",
+            descripcion: `Pago de servicio público ${servicio}`,
+            valor,
+            fecha
+        };
+
+        await set(ref(db, `clientes/${id}/movimientos/pagoServicio/${referencia}`), movimiento);
+
+        return {
+            ok: true,
+            saldo: nuevoSaldo,
+            resumen:movimiento
+        };
     } catch (error) {
-        return { ok: false, error: error.message || error };
+        return { ok: false, error: error.message || String(error) };
     }
 }

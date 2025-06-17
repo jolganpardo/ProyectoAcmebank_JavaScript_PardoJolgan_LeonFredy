@@ -3,10 +3,9 @@ import { localGet } from "./home.js"
 
 var puntos = new Intl.NumberFormat('es-CO').format;
 
-async function cagarDatosRetiros() {
+async function cargarDatosRetiros() {
     const datos = await localGet();
     const datosUser = await datosIniciar(datos.id);
-    const saldo = await datosUser.datos.saldo;
     const btnRetirar = document.getElementById("retirar-dinero");
     const inputValor = document.getElementById("cantRetirar");
 
@@ -20,11 +19,27 @@ async function cagarDatosRetiros() {
             return;
         }
 
-        alert(`Consignación exitosa. Nuevo saldo: ${resultado.saldo}`);
-        window.top.location.reload();
+        alert(`Retiro exitoso. Nuevo saldo: ${resultado.saldo}`);
+        inputValor.value = "";
+
+        // Crear el movimiento en el mismo formato que los demás
+        const movimiento = {
+            tipo: "retiro",
+            valor: valor,
+            fecha: new Date().toISOString(),
+            descripcion: "Retiro en línea",
+            referencia: resultado.resumen.referencia
+        };
+
+        // Enviar mensaje al iframe padre
+        window.parent.postMessage({ 
+            tipo: "consignacionExitosa", // puedes cambiar el nombre a "retiroExitoso" si quieres
+            movimiento: movimiento
+        }, "*");
     });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    cagarDatosRetiros();
+    cargarDatosRetiros();
 })
