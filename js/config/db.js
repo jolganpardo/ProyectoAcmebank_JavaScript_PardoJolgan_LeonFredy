@@ -216,7 +216,11 @@ export async function datosIniciar(id) {
                 cuenta: datos.cuenta,
                 saldo: saldo,
                 nombre: datos.nombre,
-                apellido: datos.apellido
+                apellido: datos.apellido,
+                documento: datos.documento,
+                tipoCuenta: datos.tipoCuenta,
+                fechaCreacion: datos.fechaCreacion,
+                estado: datos.estado
             }
         };
     } catch (error) {

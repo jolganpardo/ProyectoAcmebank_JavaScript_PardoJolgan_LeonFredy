@@ -22,7 +22,7 @@ async function cagarDatosConsignaciones() {
                 return;
             }
     
-            alert(`Retiro exitoso. Nuevo saldo: ${resultado.saldo}`);
+            alert(`Consigancion exitosa. Nuevo saldo: ${resultado.saldo}`);
             window.top.location.reload();
         });
 }

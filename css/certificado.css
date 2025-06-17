@@ -1,0 +1,86 @@
+/* Fuente y base general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: transparent;
+    color: black;
+    margin: 2rem;
+}
+
+h1 {
+    color: #1a2b6d;
+    font-size: 28px;
+    margin-bottom: 1rem;
+}
+h3 {
+    color: #0c2e60;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.nombre-certificado {
+    font-weight: bold;
+    color: #1f3b8a;
+}
+
+#documento-Certificado {
+    color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th {
+    background-color: #1a2b6d;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-top: 1px solid #ccc;
+}
+
+#nota-certificado {
+    margin-top: 1.5rem;
+    background-color: #eef2fa;
+    padding: 12px;
+    border-left: 4px solid #1a2b6d;
+    border-radius: 4px;
+    font-size: 14px;
+    color: black;
+}
+
+#fecha-certificado {
+    color: black;
+    font-size: 14px;
+}
+
+button {
+    background-color: #1a2b6d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+}

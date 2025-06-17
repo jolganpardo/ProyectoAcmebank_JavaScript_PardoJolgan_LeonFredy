@@ -18,9 +18,21 @@ function generarNumeroCuenta(cedula) {
     return numeroCuenta;
 }
 
+function fechaActual() {
+    const ahora = new Date();
+    const año = ahora.getFullYear();
+    const mes = String(ahora.getMonth() + 1).padStart(2, '0');
+    const dia = String(ahora.getDate()).padStart(2, '0');
+
+    const fechaFin = `${año}/${mes}/${dia}/ `
+    return { fechaFin};
+}
+
+
 async function validarDatosResgistroUsuario() {
-    const contra = document.getElementById("password").value
-    const contraVeri = document.getElementById("passwordVerificacion").value
+    const fecha = fechaActual().fechaFin;
+    const contra = document.getElementById("password").value;
+    const contraVeri = document.getElementById("passwordVerificacion").value;
     if (contra !== contraVeri) {
         alert("Contraseña no coinciden")
         return
@@ -38,7 +50,10 @@ async function validarDatosResgistroUsuario() {
         ciudad: document.getElementById("ciudad").value,
         password: document.getElementById("password").value,
         direccion: document.getElementById("direccion").value,
-        movimientos: []
+        movimientos: [],
+        tipoCuenta: "CUENTA DE AHORROS",
+        estado: "ACTIVO",
+        fechaCreacion: fecha
     };
     const respuesta = await registrarUsuarios(document.getElementById("documento").value, datos);
     if (respuesta.ok) {
