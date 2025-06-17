@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pago Servicios</title>
+    <script type="module" src="./js/servicios.js" defer></script>
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/formularios.css">
 </head>
 <body>
-    <h1>pagar Servicios</h1>
+    <form id="serviciosForm">
+    <h1 style="text-align: center;">Pago de Servicios</h1>
+        <label for="servicio">Selecciona el servicio:</label>
+        <select id="servicio" name="servicio" required>
+            <option value="">Selecciona</option>
+            <option value="agua">Agua</option>
+            <option value="luz">Luz</option>
+            <option value="internet">Internet</option>
+            <option value="telefono">Teléfono</option>
+        </select>
+        <br><br>
+        <label for="monto">Monto a pagar:</label>
+        <input type="number" id="monto" name="monto" min="1" required>
+        <br><br>
+        <button type="button" id="pagar-servicios">Pagar</button>
+    </form>
 </body>
 </html>

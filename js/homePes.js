@@ -1,4 +1,4 @@
-var activaPestana = "pest-principal";
+var activaPestana = "pest-Consignacion";
 
 function pestanaActiva(id) {
     document.getElementById(activaPestana).style.display = "none";
@@ -7,8 +7,7 @@ function pestanaActiva(id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    pestanaActiva("pest-principal");
+    pestanaActiva("pest-Consignacion");
 });
 
-// Hacer visible la función al HTML
 window.pestanaActiva = pestanaActiva;
