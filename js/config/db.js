@@ -216,7 +216,11 @@ export async function datosIniciar(id) {
                 cuenta: datos.cuenta,
                 saldo: saldo,
                 nombre: datos.nombre,
-                apellido: datos.apellido
+                apellido: datos.apellido,
+                documento: datos.documento,
+                tipoCuenta: datos.tipoCuenta,
+                fechaCreacion: datos.fechaCreacion,
+                estado: datos.estado
             }
         };
     } catch (error) {
@@ -340,6 +344,7 @@ export async function consignar(id, valor) {
         return { ok: false, error: error.message || error };
     }
 }
+<<<<<<< HEAD
 
 export async function cargarMovimientos(id) {
     const retirosSnap = await get(ref(db, 'clientes/' + id + '/movimientos/retiros'));
@@ -348,5 +353,32 @@ export async function cargarMovimientos(id) {
         ok: true,
         retiros:retirosSnap,
         consignaciones: consignacionesSnap,
+=======
+export async function pagarServicio(id, servicio, monto) {
+    try {
+        const clienteSnap = await get(ref(db, 'clientes/' + id));
+        if (!clienteSnap.exists()) {
+            return { ok: false, error: "Usuario no encontrado" };
+        }
+        const datos = clienteSnap.val();
+        const saldoActual = datos.saldo || 0;
+        const valor = parseFloat(monto);
+
+        if (isNaN(valor) || valor <= 0) {
+            return { ok: false, error: "Monto no válido" };
+        }
+        if (valor > saldoActual) {
+            return { ok: false, error: "Saldo insuficiente para pagar el servicio" };
+        }
+
+        const nuevoSaldo = saldoActual - valor;
+        await update(ref(db, 'clientes/' + id), { saldo: nuevoSaldo });
+
+        await set(ref(db, `clientes/${id}/pagosServicios/${Date.now()}`), { servicio, monto: valor, fecha: new Date().toISOString() });
+
+        return { ok: true, saldo: nuevoSaldo };
+    } catch (error) {
+        return { ok: false, error: error.message || error };
+>>>>>>> origin/Jolgan
     }
 }

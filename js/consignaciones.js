@@ -40,8 +40,15 @@ async function cargarDatosConsignaciones() {
                 valor: parseInt(valor),
                 fecha: new Date().toISOString()
             }
+<<<<<<< HEAD
         }, "*");
     });
+=======
+    
+            alert(`Consigancion exitosa. Nuevo saldo: ${resultado.saldo}`);
+            window.top.location.reload();
+        });
+>>>>>>> origin/Jolgan
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -19,7 +19,6 @@
         <header>
             <h1 id="tittle">Acme Bank</h1>
             <nav id="navegacion">
-                <a onclick="pestanaActiva('pest-principal')">Inicio</a>
                 <a onclick="pestanaActiva('pest-Consignacion')">Consignación</a>
                 <a onclick="pestanaActiva('pest-Retirar')">Retirar</a>
                 <a onclick="pestanaActiva('pest-Pago-Servicios')">Pago Servicios</a>
@@ -60,10 +59,12 @@
 
         </aside>
         <main id="dashboard">
-            <iframe src="./pagina-principal.html" frameborder="0" id="pest-principal"></iframe>
             <iframe class="pestana" id="pest-Consignacion" src="./consignacion.html" frameborder="0" width="100%"
             height="90%"></iframe>            
             <iframe id="pest-Retirar" src="./retirar.html"></iframe>
+            <iframe id="pest-Pago-Servicios" src="./servicios.html"></iframe>
+            <iframe id="pest-Extracto" src="./extracto.html"></iframe>
+            <iframe id="pest-Certificados" src="./certificados.html"></iframe>
         </main>
         
     </div>
