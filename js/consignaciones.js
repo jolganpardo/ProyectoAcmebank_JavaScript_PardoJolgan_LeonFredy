@@ -3,7 +3,6 @@ import {localGet, capitalizarCadaPalabra} from "./home.js"
 async function cagarDatosConsignaciones() {
     const datos = await localGet();
     const datosUser = await datosIniciar(datos.id);
-    console.log(datosUser.datos.cuenta)
     document.getElementById("numeroCuentaConsignaciones").value = datosUser.datos.cuenta
     document.getElementById("numeroCuentaConsignaciones").disabled = true;
 

@@ -255,7 +255,30 @@ export async function desencriptarUser(encryptedUserData) {
     };
 }
 
-export async function retirar(saldo, monto) {
-    
+export async function retirar(id, valor) {
+    try {
+        const clienteSnap = await get(ref(db, 'clientes/' + id));
+        if (!clienteSnap.exists()) {
+            return { ok: false, error: "Cliente no encontrado" };
+        }
+        const datos = clienteSnap.val();
+        const saldoActual = datos.saldo || 0;
+        const monto = parseInt(valor);
 
+        if (isNaN(monto) || monto <= 0) {
+            return { ok: false, error: "Monto no válido" };
+        }
+        if (monto % 10000 !== 0) {
+            return { ok: false, error: "Solo puedes retirar en múltiplos de 10.000!!!" };
+        }
+        if (monto > saldoActual) {
+            return { ok: false, error: "Saldo insuficiente" };
+        }
+
+        const nuevoSaldo = saldoActual - monto;
+        await update(ref(db, 'clientes/' + id), { saldo: nuevoSaldo });
+        return { ok: true, saldo: nuevoSaldo };
+    } catch (error) {
+        return { ok: false, error: error.message || error };
+    }
 }
