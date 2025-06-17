@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estracto Bancario</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Extracto Bancario</title>
+  <link rel="stylesheet" href="./css/extracto.css" />
+  <script type="module" src="./js/extracto.js" defer></script>
 </head>
 <body>
-    <h1>Extracto</h1>
+  <div class="contenedor">
+    <h1>Extracto Bancario</h1>
+
+    <div class="datos-cliente">
+      <p><b>Cliente:</b> <span id="nombre-cliente"></span></p>
+      <p><b>Documento:</b> <span id="documento-cliente"></span></p>
+      <p><b>Fecha de generación:</b> <span id="fecha-extracto"></span></p>
+      <p><b>Cuenta:</b> <span id="numero-cuenta"></span></p>
+    </div>
+
+    <div class="filtros">
+      <label for="año-select">Año:</label>
+      <select id="año-select">
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+      </select>
+
+      <label for="mes-select">Mes:</label>
+      <select id="mes-select">
+        <option value="01">Enero</option>
+        <option value="02">Febrero</option>
+        <option value="03">Marzo</option>
+        <option value="04">Abril</option>
+        <option value="05">Mayo</option>
+        <option value="06">Junio</option>
+        <option value="07">Julio</option>
+        <option value="08">Agosto</option>
+        <option value="09">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+      </select>
+
+      <button id="filtrar">Generar</button>
+      <button id="descargar-pdf">Descargar PDF</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Referencia</th>
+          <th>Tipo</th>
+          <th>Descripción</th>
+          <th>Valor</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-extracto">
+        <!-- Aquí se insertan dinámicamente los movimientos -->
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>

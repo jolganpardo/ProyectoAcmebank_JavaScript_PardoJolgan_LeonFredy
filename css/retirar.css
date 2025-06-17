@@ -1,6 +1,21 @@
-button {
-    width: 100px;
-}
+
 body {
     background-color: transparent;
+}
+button {
+    background-color: #1a2b6d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    color: aliceblue;
 }
