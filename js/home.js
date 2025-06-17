@@ -25,10 +25,19 @@ async function cargarDatos() {
     }
     const datosUser = await datosIniciar(user.id);
     if (datosUser.ok){
-        document.getElementById("userNombre").textContent = capitalizarCadaPalabra(datosUser.datos.nombre+" "+datosUser.datos.apellido+"👋👋");
-        document.getElementById("userCuenta").textContent = datosUser.datos.cuenta;
-        
-        document.getElementById("userSaldo").textContent = "$ " +puntos(datosUser.datos.saldo);
+        const userNombreElem = document.getElementById("userNombre");
+        const userCuentaElem = document.getElementById("userCuenta");
+        const userSaldoElem = document.getElementById("userSaldo");
+
+        if (userNombreElem) {
+            userNombreElem.textContent = capitalizarCadaPalabra(datosUser.datos.nombre+" "+datosUser.datos.apellido+"👋👋");
+        }
+        if (userCuentaElem) {
+            userCuentaElem.textContent = datosUser.datos.cuenta;
+        }
+        if (userSaldoElem) {
+            userSaldoElem.textContent = "$ " +puntos(datosUser.datos.saldo);
+        }
     }
 }
 
@@ -36,10 +45,12 @@ async function cargarDatos() {
 document.addEventListener("DOMContentLoaded", ()=>{
     let btnLogOut = document.getElementById("log-out");
 
-    btnLogOut.addEventListener("click", () => {
+    if (btnLogOut) {
+        btnLogOut.addEventListener("click", () => {
             localStorage.removeItem("datos");
             location.reload();
-    })
+        });
+    }
     cargarDatos()
 });
 
