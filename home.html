@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME ACME BANK</title>
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/resumen.css">
+    <link rel="stylesheet" href="./css/pesHome.css">
+    <script type="module" src="./js/home.js" defer></script>
+    <script type="module" src="./js/homePes.js" defer></script>
+
+
+</head>
+
+<body>
+    <div class="layout">
+        <header>
+            <h1 id="tittle">Acme Bank</h1>
+            <button id="menu-toggle" aria-label="Abrir menú">☰</button>
+            <nav id="navegacion">
+                <a onclick="pestanaActiva('pest-Consignacion')">Consignación</a>
+                <a onclick="pestanaActiva('pest-Retirar')">Retirar</a>
+                <a onclick="pestanaActiva('pest-Pago-Servicios')">Pago Servicios</a>
+                <a onclick="pestanaActiva('pest-Extracto')">Extracto</a>
+                <a onclick="pestanaActiva('pest-Certificados')">Certificados</a>
+            </nav>
+            <button id="log-out">Cerrar Sesión</button>
+        </header>
+        <aside id="datos-usuario" class="lightgray">
+            <div class="datos-cliente">
+                <h2>Hola, <span id="userNombre"></span></h2>
+                <p><strong>Número de cuenta: </strong> <br> <span id="userCuenta"></span></p>
+                <p><strong>Saldo: </strong><span id="userSaldo"></span> </p>
+            </div>
+            <details>
+                <summary id="resumen-transacciones">
+                    <span class="etiqueta-resumen-movimientos">Últimos movimientos</span>
+                </summary>
+
+                <div class="transactions-container">
+                    <template id="transaction-item-template">
+                        <details class="transaction-item">
+                            <summary class="detalles-vista-rapida">
+                                <span class="transaction-date"></span>
+                                <span class="transaction-amount"></span>
+                                <span class="transaction-type transferencia"></span>
+                            </summary>
+                            <div class="transaction-details">
+                                <div class="transaction-ref"></div>
+                                <div class="transaction-desc"></div>
+                            </div>
+                        </details>
+                    </template>
+
+
+                </div>
+            </details>
+
+        </aside>
+        <main id="dashboard">
+            <iframe class="pestana" id="pest-Consignacion" src="./consignacion.html" frameborder="0" width="100%"
+                height="90%"></iframe>
+            <iframe id="pest-Retirar" src="./retirar.html"></iframe>
+            <iframe id="pest-Pago-Servicios" src="./servicios.html"></iframe>
+            <iframe id="pest-Extracto" src="./extracto.html"></iframe>
+            <iframe id="pest-Certificados" src="./certificados.html"></iframe>
+        </main>
+
+    </div>
+</body>
+
+</html>
