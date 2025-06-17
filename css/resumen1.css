@@ -58,3 +58,48 @@
 .transaction-amount.negative {
     color: #DC2626;
 }
+
+@media (max-width: 1024px) {
+    .transaction-item {
+        max-width: 90%;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .transaction-item {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 100%;
+        padding: 12px;
+    }
+    .transaction-item > div:first-child {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+    .transaction-details {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 468px) {
+    .transaction-item {
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+    .transaction-date,
+    .transaction-desc,
+    .transaction-amount,
+    .transaction-type,
+    .transaction-ref {
+        font-size: 12px;
+    }
+    .transaction-amount {
+        font-size: 14px;
+    }
+    .transaction-type {
+        padding: 2px 6px;
+        margin-bottom: 2px;
+    }
+}
