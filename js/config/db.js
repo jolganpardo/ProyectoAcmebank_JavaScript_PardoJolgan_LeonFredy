@@ -344,26 +344,34 @@ export async function consignar(id, valor) {
         return { ok: false, error: error.message || error };
     }
 }
-<<<<<<< HEAD
 
 export async function cargarMovimientos(id) {
     const retirosSnap = await get(ref(db, 'clientes/' + id + '/movimientos/retiros'));
     const consignacionesSnap = await get(ref(db, 'clientes/' + id + '/movimientos/consignaciones'));
+    const serviciosSnap = await get(ref(db, 'clientes/' + id + '/movimientos/pagoServicio'));
+    
     return{
         ok: true,
         retiros:retirosSnap,
         consignaciones: consignacionesSnap,
-=======
-export async function pagarServicio(id, servicio, monto) {
+        servicios:serviciosSnap
+    }
+}
+
+// Función principal para pagar servicio
+export async function pagarServicio(id, servicio, valorPago) {
     try {
+        // Obtener datos del cliente desde la base de datos
         const clienteSnap = await get(ref(db, 'clientes/' + id));
         if (!clienteSnap.exists()) {
             return { ok: false, error: "Usuario no encontrado" };
         }
+
         const datos = clienteSnap.val();
         const saldoActual = datos.saldo || 0;
-        const valor = parseFloat(monto);
+        const valor = parseFloat(valorPago);
 
+        // Validaciones
         if (isNaN(valor) || valor <= 0) {
             return { ok: false, error: "Monto no válido" };
         }
@@ -371,14 +379,31 @@ export async function pagarServicio(id, servicio, monto) {
             return { ok: false, error: "Saldo insuficiente para pagar el servicio" };
         }
 
+        // Cálculo del nuevo saldo
         const nuevoSaldo = saldoActual - valor;
-        await update(ref(db, 'clientes/' + id), { saldo: nuevoSaldo });
+        const referencia = generarReferencia();
+        const fecha = new Date().toISOString();
 
-        await set(ref(db, `clientes/${id}/pagosServicios/${Date.now()}`), { servicio, monto: valor, fecha: new Date().toISOString() });
+        // Actualizar el saldo en la base de datos
+        await update(ref(db, `clientes/${id}`), { saldo: nuevoSaldo });
 
-        return { ok: true, saldo: nuevoSaldo };
+        // Registrar en historial de movimientos
+        const movimiento = {
+            referencia,
+            tipo: "pago",
+            descripcion: `Pago de servicio público ${servicio}`,
+            valor,
+            fecha
+        };
+
+        await set(ref(db, `clientes/${id}/movimientos/pagoServicio/${referencia}`), movimiento);
+
+        return {
+            ok: true,
+            saldo: nuevoSaldo,
+            resumen:movimiento
+        };
     } catch (error) {
-        return { ok: false, error: error.message || error };
->>>>>>> origin/Jolgan
+        return { ok: false, error: error.message || String(error) };
     }
 }

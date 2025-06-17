@@ -27,10 +27,10 @@ async function cargarDatosRetiros() {
         // Crear el movimiento en el mismo formato que los demás
         const movimiento = {
             tipo: "retiro",
-            monto: valor,
+            valor: valor,
             fecha: new Date().toISOString(),
             descripcion: "Retiro en línea",
-            referencia: resultado.referencia || generarReferenciaUnica()
+            referencia: resultado.resumen.referencia
         };
 
         // Enviar mensaje al iframe padre
@@ -43,5 +43,5 @@ async function cargarDatosRetiros() {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    cagarDatosRetiros();
+    cargarDatosRetiros();
 })

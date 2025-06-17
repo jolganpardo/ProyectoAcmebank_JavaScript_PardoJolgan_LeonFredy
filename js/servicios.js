@@ -26,9 +26,20 @@ async function cargarDatosServicios() {
             return;
         }
 
-        alert(`Pago de ${puntos
-        (monto)} realizado para el servicio de ${servicio}. Nuevo saldo: $${puntos(pago.saldo)}`);
-        window.top.location.reload();
+        alert(`Pago de ${puntos(monto)} realizado para el servicio de ${servicio}. Nuevo saldo: $${puntos(pago.saldo)}`);
+        // Generar referencia única si no la da el backend
+        const referencia = pago.resumen.referencia;
+        // Enviar solo un mensaje al padre con los datos del movimiento
+        window.parent.postMessage({
+            tipo: "consignacionExitosa",
+            movimiento: {
+                referencia: referencia,
+                tipo: "pago",
+                descripcion: "Consignación por canal electrónico",
+                valor: parseInt(monto),
+                fecha: new Date().toISOString()
+            }
+        }, "*");
 
     });
 }

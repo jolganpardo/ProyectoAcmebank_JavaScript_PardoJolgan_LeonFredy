@@ -84,3 +84,73 @@ button {
 button:hover {
     transform: translateY(-2px);
 }
+
+@media (max-width: 1024px) {
+    body {
+        margin: 1.5rem;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    table, th, td {
+        font-size: 15px;
+    }
+    button {
+        font-size: 15px;
+        padding: 9px 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        margin: 1rem;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    table, th, td {
+        font-size: 14px;
+    }
+    th, td {
+        padding: 10px;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 468px) {
+    body {
+        margin: 0.5rem;
+    }
+    h1 {
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 15px;
+    }
+    p, #nota-certificado, #fecha-certificado {
+        font-size: 12px;
+    }
+    table, th, td {
+        font-size: 12px;
+    }
+    th, td {
+        padding: 6px;
+    }
+    table {
+        box-shadow: none;
+        border-radius: 0;
+    }
+    button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
