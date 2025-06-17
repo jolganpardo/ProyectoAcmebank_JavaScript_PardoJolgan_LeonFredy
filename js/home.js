@@ -54,3 +54,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
     cargarDatos()
 });
 
+const menuToggle = document.getElementById("menu-toggle");
+const navegacion = document.getElementById("navegacion");
+
+if (menuToggle && navegacion) {
+    menuToggle.addEventListener("click", () => {
+        navegacion.classList.toggle("activo");
+        menuToggle.classList.toggle("abierto");
+    });
+
+    const enlacesNav = navegacion.querySelectorAll("a");
+    enlacesNav.forEach((enlace) => {
+        enlace.addEventListener("click", () => {
+            navegacion.classList.remove("activo");
+            menuToggle.classList.remove("abierto");
+        });
+    });
+}

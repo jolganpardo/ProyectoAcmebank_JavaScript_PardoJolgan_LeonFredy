@@ -9,7 +9,6 @@ async function cagarDatosRetiros() {
     const saldo = await datosUser.datos.saldo;
     const btnRetirar = document.getElementById("retirar-dinero");
     const inputValor = document.getElementById("cantRetirar");
-    document.getElementById("saldo-retirar").textContent = "$ " + puntos(datosUser.datos.saldo);
 
     btnRetirar.addEventListener("click", async () => {
         const valor = inputValor.value;
