@@ -28,7 +28,7 @@ async function cargarDatosConsignaciones() {
         inputMonto.value = "";
 
         // Generar referencia única si no la da el backend
-        const referencia = resultado.referencia || generarReferenciaUnica();
+        const referencia = resultado.resumen.referencia;
 
         // Enviar solo un mensaje al padre con los datos del movimiento
         window.parent.postMessage({
@@ -40,15 +40,8 @@ async function cargarDatosConsignaciones() {
                 valor: parseInt(valor),
                 fecha: new Date().toISOString()
             }
-<<<<<<< HEAD
         }, "*");
     });
-=======
-    
-            alert(`Consigancion exitosa. Nuevo saldo: ${resultado.saldo}`);
-            window.top.location.reload();
-        });
->>>>>>> origin/Jolgan
 }
 
 document.addEventListener("DOMContentLoaded", () => {
