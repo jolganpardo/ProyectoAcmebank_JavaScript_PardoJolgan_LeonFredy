@@ -1,7 +1,7 @@
 import { datosIniciar, cargarMovimientos } from "./config/db.js";
 import { localGet } from "./home.js";
 
-let movimientos = [];
+var movimientos = [];
 
 async function arreglarDatos() {
     const datos = await localGet();
@@ -62,15 +62,20 @@ function formatearCedula(cedula) {
     return cedula.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-document.getElementById("filtrar").addEventListener("click", () => {
+document.getElementById("filtrar").addEventListener("click", async () => {
+    await arreglarDatos();
     const año = document.getElementById("año-select").value;
     const mes = document.getElementById("mes-select").value;
 
     const listaFiltrada = movimientos.filter(mov => {
-        const fecha = new Date(mov.fecha);
+        const fecha = new Date(mov.fecha); // mov.fecha debe incluir hora
         return (
             fecha.getFullYear() == año &&
-            (fecha.getMonth() + 1).toString().padStart(2, "0") === mes
+            (fecha.getMonth() + 1).toString().padStart(2, "0") === mes &&
+            fecha.getDate() == dia &&
+            fecha.getHours() == hora &&
+            fecha.getMinutes() == minutos &&
+            fecha.getSeconds() == segundos
         );
     });
 
