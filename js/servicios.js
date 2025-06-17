@@ -26,7 +26,8 @@ async function cargarDatosServicios() {
             return;
         }
 
-        alert(`Pago de ${puntos(monto)} realizado para el servicio de ${servicio}. Nuevo saldo: $${puntos(pago.saldo)}`);
+        alert(`Pago de ${puntos
+        (monto)} realizado para el servicio de ${servicio}. Nuevo saldo: $${puntos(pago.saldo)}`);
         window.top.location.reload();
 
     });
