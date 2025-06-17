@@ -1,0 +1,115 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6fa;
+    color: #333;
+    margin: 0;
+    padding: 2rem;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #1a2b6d;
+    text-align: center;
+}
+
+.datos-cliente p {
+    margin: 0.5rem 0;
+}
+
+.filtros {
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filtros label {
+    font-weight: bold;
+}
+
+button {
+    background-color: #1a2b6d;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0f1e4c;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+thead {
+    background-color: #1a2b6d;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Diseño responsivo */
+@media screen and (max-width: 768px) {
+    .contenedor {
+        padding: 1rem;
+    }
+
+    .filtros {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        padding: 0.5rem;
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1rem;
+        top: 12px;
+        font-weight: bold;
+        color: #1a2b6d;
+    }
+}
