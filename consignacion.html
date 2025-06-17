@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consignaciones</title>
-</head>
-<body>
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./css/formularios.css">
+    <script type="module" src="./js/consignaciones.js" defer></script>
     
+</head>
+
+<body style="background-color: transparent;">
+    <form id="formularioCosigancion" class="col">
+        <h1 class="bloque">Consignaciones</h1>
+        <div >
+            <label for="numeroCuentaConsignaciones">Cuenta
+                <input type="text" name="numeroCuentaConsignaciones" id="numeroCuentaConsignaciones" required>
+            </label>
+            <label for="nombreConsignaciones">Nombre
+                <input type="text" name="nombreConsignaciones" id="nombreConsignaciones" required>
+            </label>
+            
+        </div>
+        <div>
+            <label for="montoConsignaciones">Monto
+                <input type="number" name="montoConsignaciones" id="montoConsignaciones" min="1" required>
+            </label>
+            <button type="button" id="consignar-dinero">Consignar</button>
+        </div>
+
+    </form>
 </body>
+
 </html>

@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificados</title>
+    <link rel="stylesheet" href="./css/certificado.css">
+    <script type="module" src="./js/certificado.js" defer></script>
 </head>
+
 <body>
-    
+    <div id="cont-certificado" >
+        <h1>Generar Certifado Bancario</h1>
+        <button type="button" id="descargar-certificado">Descargar Certificado</button>
+    </div>
+    <div id="certificado-pdf" style="display: none;">
+        <h3>Acme Bank</h3>
+    <h1>Certificado Bancario</h1>
+    <br>
+    <p id="fecha-certificado"></p>
+    <br>
+    <p>Señor(a) <br>
+        A quien le pueda interesar
+    </p>
+
+    <br>
+    <p>Acme Bank S.A. se permite informar que <span id="nombre-user-certificado"></span> identificado(a) con C.C. <span id="documento-certificado"></span> a la fecha de expedición de esta certificación, tiene con el banco los
+        siguientes productos:</p>
+
+    <table border="1px" id="tabla">
+        <thead>
+            <th>Producto</th>
+            <th>No. Producto</th>
+            <th>Fecha Apertura</th>
+            <th>Estado</th>
+        </thead>
+        <tbody id="cuerpo-tabla-certificado">
+
+        </tbody>
+    </table>
+    <p id="nota-certificado"><b>*Importante</b> Esta constancia solo hace referencia a los productos menciondos anteriormente.</p>
+
+    <br><br><br><br><br><br>
+
+    <div id="cont-img">
+        <img src="./img/image.png">
+    </div>
+    </div>
 </body>
+
 </html>

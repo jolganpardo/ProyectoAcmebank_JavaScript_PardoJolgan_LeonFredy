@@ -1,0 +1,114 @@
+.transactions-container {
+    max-height: 50vh;  /* usa el 60% de la altura visible del navegador */
+    overflow-y: auto;
+    padding-right: 1px;
+    
+}
+.lightgray{
+    background-color: rgb(235, 235, 235);
+}
+#resumen-transacciones{
+    margin: 1rem;
+}
+.transaction-item {
+    gap: 15px;
+    padding: 12px;
+    margin-bottom: 5px;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    border-left: 5px solid #28495f;
+
+    font-size: 0.85rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    &:hover{
+        background-color: rgb(241, 241, 241);
+    }
+}
+.detalles-vista-rapida{
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    
+}
+
+.transaction-date {
+    color: #000000;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.transaction-ref {
+    color: #95a5a6;
+    font-size: 0.7rem;
+    font-family: monospace;
+}
+
+.transaction-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.transaction-type {
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.transaction-type.transferencia {
+    background: rgba(52, 152, 219, 0.15);
+    color: #2980b9;
+}
+
+.transaction-type.deposito {
+    background: rgba(46, 204, 113, 0.15);
+    color: #27ae60;
+}
+
+.transaction-type.retiro {
+    background: rgba(231, 76, 60, 0.15);
+    color: #c0392b;
+}
+
+.transaction-type.pago {
+    background: rgba(155, 89, 182, 0.15);
+    color: #8e44ad;
+}
+
+.transaction-desc {
+    color: #34495e;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.transaction-amount {
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.transaction-amount.positive {
+    color: #27ae60;
+}
+
+.transaction-amount.negative {
+    color: #e74c3c;
+}
+.transactions-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.transactions-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.transactions-container::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+    border-radius: 3px;
+    border: 1px solid transparent;
+}
+
+.transactions-container::-webkit-scrollbar-thumb:hover {
+    background-color: #a0a0a0;
+}
