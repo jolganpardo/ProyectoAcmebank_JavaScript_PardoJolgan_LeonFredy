@@ -44,3 +44,60 @@ button {
     width: 111%;
     margin-left: -10%;
 }
+
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .opciones-sesion {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    label {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    input,
+    select {
+        width: 100%;
+        min-width: 0;
+    }
+    button {
+        width: 100%;
+    }
+    .opciones-sesion {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 468px) {
+    body {
+        padding: 0.5rem;
+    }
+    label {
+        font-size: 0.95rem;
+    }
+    input,
+    select {
+        font-size: 1rem;
+        padding: 6px;
+    }
+    button {
+        font-size: 1rem;
+        padding: 8px 0;
+    }
+    .opciones-sesion {
+        gap: 0.5rem;
+    }
+}

@@ -5,7 +5,7 @@ function generarNumeroCuenta(cedula) {
 
 
     let ahora = new Date();
-    let año = ahora.getFullYear(); // yyyy
+    let año = ahora.getFullYear();
     let mes = String(ahora.getMonth() + 1).padStart(2, '0');
     let dia = String(ahora.getDate()).padStart(2, '0');
     let hora = String(ahora.getHours()).padStart(2, '0');
@@ -24,7 +24,7 @@ function fechaActual() {
     const mes = String(ahora.getMonth() + 1).padStart(2, '0');
     const dia = String(ahora.getDate()).padStart(2, '0');
 
-    const fechaFin = `${año}/${mes}/${dia}/ `
+    const fechaFin = `${año}/${mes}/${dia} `
     return { fechaFin};
 }
 
